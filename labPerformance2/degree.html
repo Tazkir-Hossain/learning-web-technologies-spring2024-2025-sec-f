@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree Validation</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Degree </legend>
+
+    <input type="radio" name="degree" id="degree" value="SSC"> SSC
+    <input type="radio" name="degree" id="degree" value="HSC"> HSC
+    <input type="radio" name="degree" id="degree" value="Bsc"> Bsc
+
+    <p id="error-msg" style="color: red;"></p>
+
+</fieldset>
+    <button type="button" onclick="validatedegree()">Submit</button>
+
+    <script>
+        function validatedegree() {
+            const degreeOptions = document.getElementsByName("degree");
+            const errorMsg = document.getElementById("error-msg");
+            
+            let isSelected = false;
+            for (let i = 0; i < degreeOptions.length; i++) {
+                if (degreeOptions[i].checked) {
+                    isSelected = true;
+                    break;
+                }
+            }
+
+            if (!isSelected) {
+                errorMsg.textContent = "Please select a degree!";
+                return;
+            }
+
+            errorMsg.style.color = "green";
+            errorMsg.textContent = "Degree selection is valid!";
+        }
+    </script>
+</body>
+</html>
