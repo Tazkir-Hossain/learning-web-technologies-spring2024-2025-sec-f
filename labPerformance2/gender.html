@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Validation</title>
+</head>
+<body>
+    <h1>Select Gender</h1>
+
+    <input type="radio" name="gender" id="male" value="Male"> Male
+    <input type="radio" name="gender" id="female" value="Female"> Female
+    <input type="radio" name="gender" id="other" value="Other"> Other
+
+    <p id="error-msg" style="color: red;"></p>
+
+    <button type="button" onclick="validateGender()">Submit</button>
+
+    <script>
+        function validateGender() {
+            const genderOptions = document.getElementsByName("gender");
+            const errorMsg = document.getElementById("error-msg");
+            
+            let isSelected = false;
+            for (let i = 0; i < genderOptions.length; i++) {
+                if (genderOptions[i].checked) {
+                    isSelected = true;
+                    break;
+                }
+            }
+
+            if (!isSelected) {
+                errorMsg.textContent = "Please select a gender!";
+                return;
+            }
+
+            errorMsg.style.color = "green";
+            errorMsg.textContent = "Gender selection is valid!";
+        }
+    </script>
+</body>
+</html>

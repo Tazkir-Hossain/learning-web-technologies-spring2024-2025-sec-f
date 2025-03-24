@@ -8,6 +8,7 @@
 <body>
     <h1>Email</h1>
     <input type="text" id="email" placeholder="Email" />
+    <input type="checkbox" id="hint-checkbox" onclick="toggleHint()"> Show Hint
     <p id="error-msg" style="color: red;"></p>
     <button type="button" onclick="validateName()">Submit</button>
     <script>
@@ -23,8 +24,18 @@
             errorMsg.textContent = "Invalid email format! Use anything@example.com";
             return;
         }
+        function toggleHint() {
+            const emailField = document.getElementById('email');
+            const hintCheckbox = document.getElementById('hint-checkbox');
+
+            if (hintCheckbox.checked) {
+                emailField.value = "example@example.com";
+            } else {
+                emailField.value = "";
+            }
            
         }
+    }
         
     </script>
 </body>
