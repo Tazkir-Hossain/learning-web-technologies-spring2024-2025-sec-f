@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <title>Js Example</title>
+</head>
+<body>
+    <h1>Login Form</h1>
+  <form>
+    <fieldset>
+      <legend>Login Form</legend>
+  <table>
+    <tr>
+      <th><h2>Enter your name</h2></th>
+      <th><input id = "name" type="text" placeholder="First Name"  /></th>
+      
+    </tr>
+    <tr>
+      <th><h2>Enter your ID</h2></th>
+      <th><input id = "id" type="text" placeholder="ID" /></th>
+      
+    </tr>
+    <tr>
+      <th><h2>Enter your Password</h2></th>
+      <th><input id="password" type="password" placeholder="Password" /></th>
+      
+    </tr>
+</table>
+    <button type="button" onclick="validateForm()">Submit</button>
+    <p id="error-msg"></p>
+    </form>
+</fieldset>
+
+    <script>
+        function validateForm() {
+        const name = document.getElementById('name').value.trim();
+        const errorMsg = document.getElementById('error-msg');
+        const id = document.getElementById('id').value;
+        const password = document.getElementById('password').value; 
+
+        if (name === "") {
+            errorMsg.textContent = "Name Filled cannot be empty!";
+        } 
+        if (id === "") {
+            errorMsg.textContent = "Id Filled cannot be empty!";
+        }
+        if (password === "") {
+            errorMsg.textContent = "Password Filled cannot be empty!";
+        }
+        else {
+            errorMsg.textContent = "";
+            alert("Input Filled cannot be empty!");
+        }
+    }
+       
+       
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Name</h1>
+    <input type="text" id="name" placeholder="First Name" />
+    <p id="error-msg" style="color: red;"></p>
+    <button type="button" onclick="validateName()">Submit</button>
+    <script>
+        function validateName() {
+            const name = document.getElementById('name').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+            if (name === "") {
+            errorMsg.textContent="Name field cannot be empty!";
+            return;
+            }
+             
+            if (!/^[a-zA-Z]/.test(name)) {
+            errorMsg.textContent="Name must start with a letter!";
+            return;
+            }
+           
+            const words = name.split(/\s+/);
+            if (words.length < 2) {
+            errorMsg.textContent="Name must contain at least two words!";
+            return;
+            }
+            
+            if (!/^[a-zA-Z.-\s]+$/.test(name)) {
+            errorMsg.textContent="Name can only contain letters (a-z, A-Z), dot (.), dash (-), and spaces!";
+            return;
+           }
+        }
+        
+    </script>
+</body>
+</html>
