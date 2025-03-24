@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Picture Validation</title>
+</head>
+<body>
+    <fieldset>
+    <legend>Profile Picture</legend>
+
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" placeholder="Enter User ID"><br><br>
+
+    <label for="profilePic">Profile Picture:</label>
+    <input type="file" id="profilePic" accept="image/*"><br><br>
+
+    <p id="error-msg" style="color: red;"></p>
+
+    <button type="button" onclick="validateProfile()">Submit</button>
+    </fieldset>
+    <script>
+        function validateProfile() {
+            const userId = document.getElementById("userId").value.trim();
+            const profilePic = document.getElementById("profilePic").files.length;
+            const errorMsg = document.getElementById("error-msg");
+
+            errorMsg.textContent = ""; // Clear previous messages
+
+            // Validate User ID (must be a positive number)
+            if (userId === "") {
+                errorMsg.textContent = "User ID cannot be empty!";
+                return;
+            }
+            if (!/^[1-9]\d*$/.test(userId)) {
+                errorMsg.textContent = "User ID must be a positive number!";
+                return;
+            }
+
+            // Validate Profile Picture (must be selected)
+            if (profilePic === 0) {
+                errorMsg.textContent = "Please select a profile picture!";
+                return;
+            }
+
+            errorMsg.style.color = "green";
+            errorMsg.textContent = "Profile picture uploaded successfully!";
+        }
+    </script>
+</body>
+</html>
