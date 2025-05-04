@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipe Detail</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Recipe Detail</h1>
+    <nav>
+      <a href="recipes.html">Back to Recipes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="recipe-content">
+      <h2 id="recipe-title">Loading...</h2>
+      <img id="recipe-image" src="" alt="Recipe Image" />
+      <p id="recipe-description">Detailed instructions go here.</p>
+    </section>
+
+    <section class="rating-container">
+      <h3>Rate this recipe:</h3>
+      <div class="stars" id="star-rating">
+        <span data-value="1">&#9734;</span>
+        <span data-value="2">&#9734;</span>
+        <span data-value="3">&#9734;</span>
+        <span data-value="4">&#9734;</span>
+        <span data-value="5">&#9734;</span>
+      </div>
+      <p id="rating-value">Your rating: 0</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Recipe Manager</p>
+  </footer>
+
+  <script src="../js/detail.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Recipe</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Add New Recipe</h1>
+    <nav>
+      <a href="recipes.html">Back</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="addRecipeForm">
+      <input type="text" placeholder="Recipe Title" required />
+      <input type="url" placeholder="Image URL" required />
+      <textarea placeholder="Description" required></textarea>
+      <select>
+        <option value="vegan">Vegan</option>
+        <option value="dessert">Dessert</option>
+        <option value="keto">Keto</option>
+      </select>
+      <button type="submit">Add Recipe</button>
+    </form>
+  </main>
+</body>
+</html>
