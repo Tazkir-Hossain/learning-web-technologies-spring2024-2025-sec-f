@@ -1,0 +1,108 @@
+/* Search Container Styling */
+.search-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 15px;
+  text-align: center;
+  background-color: #f8f9fa; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Label Styling */
+.search-container label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Dark color for label text */
+  display: block;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  font-family: "Arial", sans-serif;
+}
+
+/* Input Field Styling */
+.search-container input {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out; /* Smooth transition for focus */
+}
+
+/* Input Focus Effects */
+.search-container input:focus {
+  border-color: #4caf50; /* Green border on focus */
+  box-shadow: 0 0 8px rgba(72, 181, 50, 0.4); /* Green shadow for focus */
+}
+
+/* Placeholder Text Styling */
+.search-container input::placeholder {
+  color: #aaa; /* Light grey placeholder text */
+  font-style: italic;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Centers cards horizontally */
+}
+.recipe-card img {
+  width: 300px; /* or 400px */
+  height: 200px; /* or 300px */
+  object-fit: cover; /* important: makes sure image fills the box without stretching */
+  border-radius: 8px; /* optional: make corners rounded */
+}
+
+.recipe-card {
+  border-radius: 12px;
+  border: 2px solid #ccc; /* Add border to make it visible */
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Basic Button Styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  outline: none;
+}
+
+/* View Button */
+.view-btn {
+  background-color: #4caf50; /* Green background */
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Lift the button slightly */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+/* Save Button */
+.save-btn {
+  background-color: #ff6347; /* Red background */
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #e5533a; /* Slightly darker red on hover */
+  transform: translateY(-2px); /* Lift the button slightly */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+/* Optional: Add focus effect for accessibility */
+button:focus {
+  outline: 3px solid #ffcc00; /* Golden outline when focused */
+}
