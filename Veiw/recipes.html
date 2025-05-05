@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>All Recipes</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <meta charset="UTF-8">
+  <title>Recipes</title>
+  <link rel="stylesheet" href="../Asset/CSS/style.css" />
 </head>
 <body>
-  <header>
-    <h1>All Recipes</h1>
-    <nav>
-      <a href="recipe-add.html">Add New Recipe</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="filters">
-      <input type="text" id="searchInput" placeholder="Search..." />
-      <select id="categoryFilter">
-        <option value="all">All</option>
-        <option value="vegan">Vegan</option>
-        <option value="dessert">Dessert</option>
-        <option value="keto">Keto</option>
-      </select>
-    </section>
+  <nav class="navbar">
+    <a href="recipes.html"> Recipes </a>
+    <a href="favorites.html"> Favorites </a>
+    <a href="explore.html"> Explore</a>
+  </nav>
+  
+  <h1> All Recipes</h1>
 
-    <section id="recipeList" class="gallery"></section>
-  </main>
+  <div id="recipe-container">
+    <!-- Example cards; you can later generate this with JS -->
+    <div class="recipe-card" data-id="1">
+      <h3>Chicken Biryani</h3>
+      <p>Delicious layered rice dish...</p>
+      <button class="favorite-btn"> Save</button>
+    </div>
 
-  <script src="../js/recipes.js" defer></script>
+    <div class="recipe-card" data-id="2">
+      <h3>Pasta</h3>
+      <p>Simple, quick, and healthy...</p>
+      <button class="favorite-btn"> Save</button>
+    </div>
+  </div>
+
+  <script src="../Asset/JS/recipes.js"></script>
 </body>
 </html>

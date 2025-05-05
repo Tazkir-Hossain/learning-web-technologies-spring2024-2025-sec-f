@@ -1,0 +1,73 @@
+/* Layout */
+.main-layout {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0 0 200px;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Content */
+.content {
+  flex: 1;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.recipe-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Spotlight */
+.spotlight {
+  flex: 0 0 250px;
+  background: #fffbe6;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.spotlight-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.season-tag {
+  background: #ffeb99;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+.navbar a.active {
+  color: #d35400;
+}

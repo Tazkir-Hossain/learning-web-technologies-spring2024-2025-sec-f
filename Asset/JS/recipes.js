@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("recipes.js loaded");
-  
     const recipes = [
       { id: 1, title: "Avocado Toast", category: "vegan", image: "https://via.placeholder.com/300x200" },
-      { id: 2, title: "Cake", category: "dessert", image: "https://via.placeholder.com/300x200" },
-      { id: 3, title: "Keto Chicken", category: "keto", image: "https://via.placeholder.com/300x200" },
+      { id: 2, title: "Chocolate Cake", category: "dessert", image: "https://via.placeholder.com/300x200" },
+      { id: 3, title: "Keto Chicken Bowl", category: "keto", image: "https://via.placeholder.com/300x200" },
     ];
   
     const recipeList = document.getElementById("recipeList");
@@ -19,8 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
       recipeList.innerHTML = filtered.map(r => `
         <div class="recipe-card">
-          <img src="${r.image}" />
+          <img src="${r.image}" alt="${r.title}">
           <h3>${r.title}</h3>
+          <a href="recipe-detail.html?id=${r.id}">View Details</a>
         </div>
       `).join("");
     }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seasonal Suggestions</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Seasonal Suggestions</h1>
+    <nav>
+      <a href="recipes.html">All Recipes</a>
+    </nav>
+  </header>
+
+  <section id="produce-guide">
+    <h2>🍅 Seasonal Produce</h2>
+    <ul id="seasonal-produce-list"></ul>
+  </section>
+
+  <section id="holiday-collections">
+    <h2>🎉 Holiday Recipes</h2>
+    <div id="holiday-recipes"></div>
+  </section>
+
+  <section id="farmers-market">
+    <h2>🛒 Farmers Market Finder</h2>
+    <input type="text" id="zipCodeInput" placeholder="Enter your ZIP code" />
+    <button onclick="findMarkets()">Find Markets</button>
+    <div id="market-results"></div>
+  </section>
+
+  <script src="../js/seasonal.js"></script>
+</body>
+</html>
