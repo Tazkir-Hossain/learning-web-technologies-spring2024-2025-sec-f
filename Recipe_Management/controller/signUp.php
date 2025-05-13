@@ -1,49 +1,37 @@
 <?php
-// Initialize variables
-$name = $email = $password = $confirmPassword = "";
-$errors = [];
+if(isset($_POST['name']))
+{
+  $server = "localhost";
+  $username = "root";
+  $password ="";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  // Sanitize input
-  $name = trim($_POST["name"]);
-  $email = trim($_POST["email"]);
-  $password = $_POST["password"];
-  $confirmPassword = $_POST["confirm_password"];
+  $con = mysqli_connect($server, $username, $password);
 
-  // Basic validation
-  if (empty($name)) $errors[] = "Name is required.";
-  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Valid email is required.";
-  if (strlen($password) < 6) $errors[] = "Password must be at least 6 characters.";
-  if ($password !== $confirmPassword) $errors[] = "Passwords do not match.";
-
-  // Save to database if no errors
-  if (empty($errors)) {
-    // Database connection
-    $conn = new mysqli("localhost", "root", "", "recipe_db");
-
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Hash the password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insert query
-    $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $name, $email, $hashedPassword);
-
-    if ($stmt->execute()) {
-      echo "<p class='success'>Registration successful! You can now <a href='login.php'>Login</a>.</p>";
-    } else {
-      $errors[] = "Error: " . $stmt->error;
-    }
-
-    $stmt->close();
-    $conn->close();
+  if(!$con){
+    die("connection to this database failed due to" . mysqli_connect_error());
   }
+  //echo "Success connecting to the db";
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $confirm_password = $_POST['confirm_password'];
+
+  $sql = "INSERT INTO `recipe_management`.`signup` (`name`, `email`, `password`, `confirm_password`, `date`) VALUES
+   ('$name', '$email', '$password', '$confirm_password', current_timestamp());";
+
+   echo $sql;
+
+   if($con->query($sql) == true){
+    echo "Successfully inserted";
+   }
+   else{
+    echo "ERROR: $sql <br> $con->error";
+   }
+
+   $con->close();
+
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,20 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
   <div class="form-container">
     <h2>Create Your Account</h2>
-
-    <?php if (!empty($errors)): ?>
-      <div class="error-box">
-        <?php foreach ($errors as $error): ?>
-          <p><?php echo htmlspecialchars($error); ?></p>
-        <?php endforeach; ?>
-      </div>
-    <?php endif; ?>
-
+    <p>Thank you for choosing our Recipe Management System!</p>
     <form method="POST" action="signup.php">
-      <input type="text" name="name" placeholder="Full Name" value="<?php echo htmlspecialchars($name); ?>" required>
-      <input type="email" name="email" placeholder="Email Address" value="<?php echo htmlspecialchars($email); ?>" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      <input type="text" name="name" id="name" placeholder="Full Name">
+      <input type="email" name="email" id="email" placeholder="Email Address">
+      <input type="password" name="password" id="pass" placeholder="Password">
+      <input type="password" name="confirm_password" id="conpass" placeholder="Confirm Password">
       <button type="submit">Sign Up</button>
     </form>
 
