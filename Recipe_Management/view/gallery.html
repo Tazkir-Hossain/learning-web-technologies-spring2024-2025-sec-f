@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../Styles/gallery.css" />
+    <link rel="stylesheet" href="../assets/styles/gallery.css" />
   </head>
   <body>
     <!-- Search Bar -->
@@ -12,9 +12,16 @@
       <label for="">Find Your Favourite Recipe😊</label>
       <input type="text" id="searchInput" placeholder="Search recipes..." />
     </div>
+    <div class="filter-panel">
+      <label>Filter by Diet:</label><br />
+      <input type="checkbox" name="diet" value="vegetarian" checked />
+      Vegetarian
+      <input type="checkbox" name="diet" value="non-veg" checked /> Non-Veg
+      <input type="checkbox" name="diet" value="vegan" checked /> Vegan
+    </div>
     <div class="gallery-container">
-      <div class="recipe-card">
-        <img src="../Assets/pizza.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="pizza" data-diet="vegetarian">
+        <img src="../assets/pizza.jpg" alt="Recipe Name" />
         <h3>Pizza</h3>
         <p>
           A delicious, cheesy pizza topped with fresh ingredients, including
@@ -24,8 +31,8 @@
         <button class="view-btn">View Details</button>
         <button class="save-btn">Save to Favorites</button>
       </div>
-      <div class="recipe-card">
-        <img src="../Assets/burger.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="burger" data-diet="non-veg">
+        <img src="../assets/burger.jpg" alt="Recipe Name" />
         <h3>Burger</h3>
         <p>
           A juicy, flavorful beef patty with crisp lettuce, tomatoes, and a
@@ -35,8 +42,8 @@
         <button class="view-btn">View Details</button>
         <button class="save-btn">Save to Favorites</button>
       </div>
-      <div class="recipe-card">
-        <img src="../Assets/cake.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="cake" data-diet="veg">
+        <img src="../assets/cake.jpg" alt="Recipe Name" />
         <h3>Cake</h3>
         <p>
           A rich and moist chocolate cake layered with creamy frosting. Ideal
@@ -45,8 +52,8 @@
         <button class="view-btn">View Details</button>
         <button class="save-btn">Save to Favorites</button>
       </div>
-      <div class="recipe-card">
-        <img src="../Assets/fruitSalad.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="fruitSalad" data-diet="veg">
+        <img src="../assets/fruitSalad.jpg" alt="Recipe Name" />
         <h3>Fruit Salad</h3>
         <p>
           A refreshing mix of seasonal fruits, including berries, apples, and
@@ -56,8 +63,8 @@
         <button class="view-btn">View Details</button>
         <button class="save-btn">Save to Favorites</button>
       </div>
-      <div class="recipe-card">
-        <img src="../Assets/fruitSandwich.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="fruitSandwich" data-diet="veg">
+        <img src="../assets/fruitSandwich.jpg" alt="Recipe Name" />
         <h3>Fruit Sandwich</h3>
         <p>
           A light and sweet sandwich filled with fresh fruit slices like
@@ -66,8 +73,8 @@
         <button class="view-btn">View Details</button>
         <button class="save-btn">Save to Favorites</button>
       </div>
-      <div class="recipe-card">
-        <img src="../Assets/kabab.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="kabab" data-diet="non-veg">
+        <img src="../assets/kabab.jpg" alt="Recipe Name" />
         <h3>Kabab</h3>
         <p>
           Tender pieces of marinated meat, grilled to perfection with spices and
@@ -77,8 +84,8 @@
         <button class="view-btn">View Details</button>
         <button class="save-btn">Save to Favorites</button>
       </div>
-      <div class="recipe-card">
-        <img src="../Assets/pancake.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="pancake" data-diet="veg">
+        <img src="../assets/pancake.jpg" alt="Recipe Name" />
         <h3>Pan Cake</h3>
         <p>
           Fluffy, golden pancakes served with syrup and butter. A comforting
@@ -87,8 +94,8 @@
         <button class="view-btn">View Details</button>
         <button class="save-btn">Save to Favorites</button>
       </div>
-      <div class="recipe-card">
-        <img src="../Assets/sandwich.jpg" alt="Recipe Name" />
+      <div class="recipe-card" data-title="sandwich" data-diet="non-veg">
+        <img src="../assets/sandwich.jpg" alt="Recipe Name" />
         <h3>Sandwich</h3>
         <p>
           A classic sandwich filled with ham, cheese, lettuce, and tomatoes.
@@ -98,5 +105,6 @@
         <button class="save-btn">Save to Favorites</button>
       </div>
     </div>
+    <script src="../assets/js/gallery.js"></script>
   </body>
 </html>
