@@ -31,6 +31,28 @@
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
+.detail-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.recipe-detail-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.recipe-detail-card h2 {
+  margin-bottom: 0.5rem;
+}
+
+.recipe-detail-card ul {
+  padding-left: 1.2rem;
+}
+
+
 /* Spotlight */
 .spotlight {
   flex: 0 0 250px;

@@ -2,34 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Recipes</title>
-  <link rel="stylesheet" href="../Asset/CSS/style.css" />
+  <title>Bangladeshi Recipes</title>
+  <link rel="stylesheet" href="../Asset/CSS/style.css">
 </head>
 <body>
-
   <nav class="navbar">
-    <a href="recipes.html"> Recipes </a>
-    <a href="favorites.html"> Favorites </a>
-    <a href="explore.html"> Explore</a>
+    <a href="recipes.html" class="active">Recipes</a>
+    <a href="favorites.html">Favorites</a>
+    <a href="explore.html">Explore</a>
+    <a href="seasonal.html">Seasonal</a>
   </nav>
-  
-  <h1> All Recipes</h1>
 
-  <div id="recipe-container">
-    <!-- Example cards; you can later generate this with JS -->
-    <div class="recipe-card" data-id="1">
-      <h3>Chicken Biryani</h3>
-      <p>Delicious layered rice dish...</p>
-      <button class="favorite-btn"> Save</button>
-    </div>
-
-    <div class="recipe-card" data-id="2">
-      <h3>Pasta</h3>
-      <p>Simple, quick, and healthy...</p>
-      <button class="favorite-btn"> Save</button>
-    </div>
+  <h1>All Bangladeshi Recipes</h1>
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="Search Bangladeshi recipes...">
+    <select id="categoryFilter">
+      <option value="all">All</option>
+      <option value="non-veg">Non-Veg</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="fish">Fish</option>
+    </select>
   </div>
 
-  <script src="../Asset/JS/recipes.js"></script>
+  <div id="recipeList" class="recipe-grid"></div>
+  <script src="../Asset/JS/add_recipe.js"></script>
 </body>
 </html>

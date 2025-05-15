@@ -1,23 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const recipeId = new URLSearchParams(window.location.search).get("id");
 
-  const recipes = {
-    1: {
-      title: "Avocado Toast",
-      image: "https://via.placeholder.com/600x400",
-      description: "Toasted bread topped with mashed avocado, lemon, and salt.",
-    },
-    2: {
-      title: "Chocolate Cake",
-      image: "https://via.placeholder.com/600x400",
-      description: "Rich and moist chocolate cake with creamy frosting.",
-    },
-    3: {
-      title: "Keto Chicken Bowl",
-      image: "https://via.placeholder.com/600x400",
-      description: "Low-carb grilled chicken bowl with veggies.",
-    },
-  };
+  const recipes = [
+    { id: 1, title: "Biriyani", cuisine: "Bangladeshi", meal: "Lunch", diet: "Non-Veg" },
+    { id: 2, title: "Shutki Bhuna", cuisine: "Bangladeshi", meal: "Dinner", diet: "Non-Veg" },
+    { id: 3, title: "Shorshe Ilish", cuisine: "Bangladeshi", meal: "Lunch", diet: "Fish" },
+    { id: 4, title: "Chingri Malai Curry", cuisine: "Bangladeshi", meal: "Dinner", diet: "Seafood" },
+    { id: 5, title: "Begun Bharta", cuisine: "Bangladeshi", meal: "Dinner", diet: "Vegetarian" },
+  ];
+  
 
   const data = recipes[recipeId];
   if (data) {

@@ -1,63 +1,35 @@
-<!-- view/explore.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Explore Recipes</title>
-  <link rel="stylesheet" href="../Asset/CSS/style.css" />
+  <meta charset="UTF-8">
+  <title>Explore Bangladeshi Recipes</title>
+  <link rel="stylesheet" href="../Asset/CSS/style.css">
 </head>
 <body>
-
-  <!-- 🔝 Top Navigation -->
   <nav class="navbar">
-    <a href="recipes.html"> Recipes</a>
+    <a href="recipes.html">Recipes</a>
     <a href="favorites.html">Favorites</a>
-    <a href="explore.html" class="active"> Explore</a>
+    <a href="explore.html" class="active">Explore</a>
   </nav>
+  <h1>Explore Regional Recipes</h1>
 
-  <div class="main-layout">
+  <select id="cuisineFilter">
+    <option value="">All Regions</option>
+    <option value="Dhaka">Dhaka</option>
+    <option value="Chittagong">Chittagong</option>
+    <option value="Sylhet">Sylhet</option>
+    <option value="Khulna">Khulna</option>
+  </select>
 
-    
-    <aside class="sidebar">
-      <h3>Filter Recipes</h3>
+  <label><input type="checkbox" class="filter" value="Breakfast"> সকাল (Breakfast)</label>
+  <label><input type="checkbox" class="filter" value="Lunch"> দুপুর (Lunch)</label>
+  <label><input type="checkbox" class="filter" value="Dinner"> রাতের খাবার (Dinner)</label>
 
-      <label>Meal Type:</label>
-      <div><input type="checkbox" class="filter" value="Breakfast"> Breakfast</div>
-      <div><input type="checkbox" class="filter" value="Lunch"> Lunch</div>
-      <div><input type="checkbox" class="filter" value="Dinner"> Dinner</div>
+  <label><input type="checkbox" class="diet" value="Vegetarian"> নিরামিষ</label>
+  <label><input type="checkbox" class="diet" value="Non-Veg"> আমিষ</label>
+  <label><input type="checkbox" class="diet" value="Fish"> মাছ</label>
 
-      <label>Cuisine:</label>
-      <select id="cuisineFilter">
-        <option value="">All</option>
-        <option>Indian</option>
-        <option>Italian</option>
-        <option>Chinese</option>
-        <option>Mexican</option>
-      </select>
-
-      <label>Dietary:</label>
-      <div><input type="checkbox" class="diet" value="Vegetarian"> Vegetarian</div>
-      <div><input type="checkbox" class="diet" value="Vegan"> Vegan</div>
-    </aside>
-
-    
-    <main class="content">
-      <h2>Explore Recipes</h2>
-      <div id="recipeGrid" class="recipe-grid"></div>
-    </main>
-
-   
-    <section class="spotlight">
-      <h3> Seasonal Spotlight</h3>
-      <div class="spotlight-card">
-        <h4>Strawberry Salad</h4>
-        <p>Fresh spring ingredients, perfect for the season!</p>
-        <span class="season-tag">Spring</span>
-      </div>
-    </section>
-
-  </div>
-
+  <div id="recipeGrid" class="recipe-grid"></div>
   <script src="../Asset/JS/explore.js"></script>
 </body>
 </html>
