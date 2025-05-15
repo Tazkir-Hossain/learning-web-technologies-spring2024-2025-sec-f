@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversion Calculator</title>
+  <link rel="stylesheet" href="../Asset/CSS/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="recipes.html">Recipes</a>
+    <a href="explore.html">Explore</a>
+    <a href="convert.html" class="active">Convert</a>
+  </nav>
+
+  <h1>📐 Conversion Calculator</h1>
+
+  <section>
+    <h3>Unit Converter</h3>
+    <input type="number" id="unitInput" placeholder="Enter value" />
+    <select id="unitType">
+      <option value="gm-to-cup">Gram ➝ Cup</option>
+      <option value="cup-to-gm">Cup ➝ Gram</option>
+      <option value="ml-to-tbsp">ml ➝ Tablespoon</option>
+      <option value="tbsp-to-ml">Tablespoon ➝ ml</option>
+    </select>
+    <button onclick="convertUnit()">Convert</button>
+    <p id="unitResult"></p>
+  </section>
+
+  <section>
+    <h3>Serving Size Adjuster</h3>
+    <input type="number" id="baseQty" placeholder="Ingredient Qty (e.g., 100)" />
+    <input type="number" id="baseServing" placeholder="Base Serving (e.g., 2)" />
+    <input type="number" id="targetServing" placeholder="Target Serving (e.g., 4)" />
+    <button onclick="adjustServing()">Scale</button>
+    <p id="scaledResult"></p>
+  </section>
+
+  <script src="../Asset/JS/convert.js"></script>
+</body>
+</html>

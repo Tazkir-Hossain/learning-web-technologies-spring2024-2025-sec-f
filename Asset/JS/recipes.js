@@ -1,11 +1,29 @@
-<script>
 document.addEventListener("DOMContentLoaded", () => {
   const recipes = [
-    { id: 1, title: "Biriyani", category: "non-veg", image: "https://via.placeholder.com/300x200", region: "Dhaka" },
-    { id: 2, title: "Shutki Bhuna", category: "non-veg", image: "https://via.placeholder.com/300x200", region: "Sylhet" },
-    { id: 3, title: "Shorshe Ilish", category: "fish", image: "https://via.placeholder.com/300x200", region: "Barisal" },
-    { id: 4, title: "Chingri Malai Curry", category: "fish", image: "https://via.placeholder.com/300x200", region: "Khulna" },
-    { id: 5, title: "Begun Bharta", category: "vegetarian", image: "https://via.placeholder.com/300x200", region: "Rajshahi" }
+    {
+      id: 1,
+      title: "Biriyani",
+      category: "non-veg",
+      image: "../Asset/Image/biriyani.jpg"
+    },
+    {
+      id: 2,
+      title: "Shutki Bhuna",
+      category: "non-veg",
+      image: "../Asset/Image/shutki.jpg"
+    },
+    {
+      id: 3,
+      title: "Shorshe Ilish",
+      category: "fish",
+      image: "../Asset/Image/ilish.jpg"
+    },
+    {
+      id: 4,
+      title: "Begun Bharta",
+      category: "vegetarian",
+      image: "../Asset/Image/begun.jpg"
+    }
   ];
 
   const recipeList = document.getElementById("recipeList");
@@ -37,4 +55,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderRecipes();
 });
-</script>

@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const div = document.createElement("div");
     div.className = "recipe-card";
     div.innerHTML = `
-      <h3>${recipe.title}</h3>
+      <img src="${recipe.image}" alt="${recipe.title}" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
+      <h4>${recipe.title}</h4>
       <button onclick="removeFavorite('${recipe.id}')">🗑 Remove</button>
     `;
     container.appendChild(div);

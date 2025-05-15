@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
       cuisine: "Dhaka",
       meal: "Lunch",
       diet: "Non-Veg",
-      image: ""
-
+      image: "../Ass"
+    },
     {
       id: 2,
       title: "Shutki Bhuna",
       cuisine: "Sylhet",
       meal: "Dinner",
       diet: "Non-Veg",
-      image: "https://via.placeholder.com/300x200?text=Shutki+Bhuna"
+      image: "../Asset/Image/shutki.jpg"
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cuisine: "Khulna",
       meal: "Lunch",
       diet: "Fish",
-      image: "https://via.placeholder.com/300x200?text=Shorshe+Ilish"
+      image: "../Asset/Image/ilish.jpg"
     },
     {
       id: 4,
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cuisine: "Chittagong",
       meal: "Dinner",
       diet: "Vegetarian",
-      image: "https://via.placeholder.com/300x200?text=Begun+Bharta"
+      image: "../Asset/Image/begun.jpg"
     }
   ];
 
@@ -47,10 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const div = document.createElement("div");
       div.className = "recipe-card";
       div.innerHTML = `
-        <img src="${recipe.image}" alt="${recipe.title}" style="width:100%; border-radius:6px;">
+        <img src="${recipe.image}" alt="${recipe.title}" style="width:100%; height:180px; object-fit:cover; border-radius:8px;">
         <h4>${recipe.title}</h4>
         <p>${recipe.cuisine} | ${recipe.meal}</p>
-        <p><strong>Diet:</strong> ${recipe.diet || "Standard"}</p>
+        <p><strong>Diet:</strong> ${recipe.diet}</p>
       `;
       recipeGrid.appendChild(div);
     });
@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function applyFilters() {
     const selectedMeals = Array.from(document.querySelectorAll(".filter:checked")).map(cb => cb.value);
-    const selectedDiet = Array.from(document.querySelectorAll(".diet:checked")).map(cb => cb.value);
+    const selectedDiets = Array.from(document.querySelectorAll(".diet:checked")).map(cb => cb.value);
     const selectedCuisine = document.getElementById("cuisineFilter").value;
 
     const filtered = recipes.filter(r => {
       const mealMatch = selectedMeals.length ? selectedMeals.includes(r.meal) : true;
-      const dietMatch = selectedDiet.length ? selectedDiet.includes(r.diet) : true;
+      const dietMatch = selectedDiets.length ? selectedDiets.includes(r.diet) : true;
       const cuisineMatch = selectedCuisine ? r.cuisine === selectedCuisine : true;
       return mealMatch && dietMatch && cuisineMatch;
     });

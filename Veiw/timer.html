@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cooking Timer</title>
+  <link rel="stylesheet" href="../Asset/CSS/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="recipes.html">Recipes</a>
+    <a href="favorites.html">Favorites</a>
+    <a href="explore.html">Explore</a>
+    <a href="timer.html" class="active">Timer</a>
+  </nav>
+
+  <h1>🍳 Cooking Timers</h1>
+
+  <div class="timer-controls">
+    <input type="text" id="timerName" placeholder="Step name (e.g., Boil rice)" />
+    <input type="number" id="timerMinutes" placeholder="Minutes" />
+    <button onclick="addTimer()">➕ Add Timer</button>
+  </div>
+
+  <div id="timersContainer" class="recipe-grid"></div>
+
+  <script src="../Asset/JS/timer.js"></script>
+</body>
+</html>
