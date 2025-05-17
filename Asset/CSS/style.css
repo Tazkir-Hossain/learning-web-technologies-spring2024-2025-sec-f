@@ -99,3 +99,34 @@ h1, h2 {
 .stars span.active {
   color: gold;
 }
+
+.pagination-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination-controls button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination-controls button.active {
+  background-color: #d35400;
+  color: white;
+  font-weight: bold;
+}
+
+.stars span {
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.stars span.active {
+  color: gold;
+}

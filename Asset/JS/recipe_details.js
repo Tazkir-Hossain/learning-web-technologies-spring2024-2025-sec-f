@@ -33,14 +33,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const stars = document.querySelectorAll("#star-rating span");
   const ratingDisplay = document.getElementById("rating-value");
+  const storageKey = `rating_${recipeId}`;
+  let selectedRating = parseInt(localStorage.getItem(storageKey)) || 0;
+
+  function updateStars(rating) {
+    stars.forEach(star => {
+      const val = parseInt(star.dataset.value);
+      star.classList.toggle("active", val <= rating);
+    });
+    ratingDisplay.textContent = `Your rating: ${rating}`;
+  }
 
   stars.forEach(star => {
     star.addEventListener("click", () => {
-      const value = star.dataset.value;
-      stars.forEach(s => {
-        s.classList.toggle("active", s.dataset.value <= value);
-      });
-      ratingDisplay.textContent = `Your rating: ${value}`;
+      selectedRating = parseInt(star.dataset.value);
+      localStorage.setItem(storageKey, selectedRating);
+      updateStars(selectedRating);
     });
   });
+
+  
+  updateStars(selectedRating);
 });
