@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth Validation</title>
+</head>
+<body>
+    <fieldset>
+    <legend>Date of Birth</legend>
+
+    <input type="text" id="day" placeholder="DD" maxlength="2" size="2"> /
+    <input type="text" id="month" placeholder="MM" maxlength="2" size="2"> /
+    <input type="text" id="year" placeholder="YYYY" maxlength="4" size="4">
+
+    <p id="error-msg" style="color: red;"></p>
+    
+    <button type="button" onclick="validateDOB()">Submit</button>
+</fieldset>
+
+    <script>
+        function validateDOB() {
+            const day = document.getElementById('day').value.trim();
+            const month = document.getElementById('month').value.trim();
+            const year = document.getElementById('year').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            errorMsg.textContent = ""; // Clear previous messages
+
+            // Check for empty fields
+            if (day === "" || month === "" || year === "") {
+                errorMsg.textContent = "Date of birth fields cannot be empty!";
+                return;
+            }
+
+            // Convert to numbers
+            const dayNum = parseInt(day, 10);
+            const monthNum = parseInt(month, 10);
+            const yearNum = parseInt(year, 10);
+
+            // Validate number ranges
+            if (isNaN(dayNum) || dayNum < 1 || dayNum > 31) {
+                errorMsg.textContent = "Invalid day! Must be between 1 and 31.";
+                return;
+            }
+            if (isNaN(monthNum) || monthNum < 1 || monthNum > 12) {
+                errorMsg.textContent = "Invalid month! Must be between 1 and 12.";
+                return;
+            }
+            if (isNaN(yearNum) || yearNum < 1900 || yearNum > 2025) {
+                errorMsg.textContent = "Invalid year! Must be between 1900 and 2025.";
+                return;
+            }
+
+            // If all validations pass
+            errorMsg.style.color = "green";
+            errorMsg.textContent = "Date of birth is valid!";
+        }
+    </script>
+</body>
+</html>

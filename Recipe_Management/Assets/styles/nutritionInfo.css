@@ -1,0 +1,55 @@
+.nutrition-card {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  background: #fff8f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nutrition-label p {
+  margin: 5px 0;
+}
+
+.macro-breakdown .bar {
+  /* background-color: #ddd; */
+  height: 20px;
+  margin: 5px 0;
+  border-radius: 4px;
+  padding-left: 10px;
+  color: #000;
+  font-size: 14px;
+}
+
+.protein {
+  background-color: #ffcccb;
+}
+.carbs {
+  background-color: #add8e6;
+}
+.fat {
+  background-color: #ffe4b5;
+}
+
+.dietary-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 3px;
+  font-size: 12px;
+}
+
+.keto {
+  background-color: #d7f7d7;
+}
+.vegan {
+  background-color: #ccffcc;
+}
+.gluten-free {
+  background-color: #ebc0da;
+}

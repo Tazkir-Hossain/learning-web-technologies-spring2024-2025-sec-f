@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Email</h1>
+    <input type="text" id="email" placeholder="Email" />
+    <input type="checkbox" id="hint-checkbox" onclick="toggleHint()"> Show Hint
+    <p id="error-msg" style="color: red;"></p>
+    <button type="button" onclick="validateName()">Submit</button>
+    <script>
+        function validateName() {
+            const name = document.getElementById('email').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+            if (email === "") {
+            errorMsg.textContent="Email field cannot be empty!";
+            return;
+            }
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+            errorMsg.textContent = "Invalid email format! Use anything@example.com";
+            return;
+        }
+        function toggleHint() {
+            const emailField = document.getElementById('email');
+            const hintCheckbox = document.getElementById('hint-checkbox');
+
+            if (hintCheckbox.checked) {
+                emailField.value = "example@example.com";
+            } else {
+                emailField.value = "";
+            }
+           
+        }
+    }
+        
+    </script>
+</body>
+</html>

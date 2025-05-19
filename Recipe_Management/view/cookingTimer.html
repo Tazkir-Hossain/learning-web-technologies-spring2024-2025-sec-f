@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cooking Timer</title>
+    <link rel="stylesheet" href="../assets/styles/cookingTimer.css" />
+  </head>
+  <body>
+    <h2>Cooking Timer</h2>
+
+    <div class="timer-form">
+      <input
+        type="text"
+        id="timerName"
+        placeholder="Step Name (e.g., Boil Pasta)"
+      />
+      <input
+        type="number"
+        id="timerDuration"
+        placeholder="Duration (seconds)"
+      />
+      <button onclick="addTimer()">Start Timer</button>
+    </div>
+
+    <div id="timerContainer"></div>
+
+    <script src="../assets/js/cookingTimer.js"></script>
+  </body>
+</html>
