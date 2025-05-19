@@ -18,6 +18,7 @@
     </form>
 
     <p>Already have an account? <a href="login.php">Login here</a></p>
+    <script src="../assets/js/signUp.js"></script>
   </div>
 </body>
 </html>
