@@ -25,7 +25,7 @@ function addTimer() {
       const remaining = endTime - Date.now();
       if (remaining <= 0) {
         clearInterval(interval);
-        timeDisplay.textContent = "⏰ Time's up!";
+        timeDisplay.textContent = "Time's up!";
         card.style.border = "2px solid red";
         alert(`🔔 "${name}" is done!`);
       } else {

@@ -50,14 +50,14 @@ function findMarkets() {
     return;
   }
 
-  result.innerHTML = `<p>🔍 Searching for markets near ${zip}...</p>`;
+  result.innerHTML = `<p> Searching for markets near ${zip}...</p>`;
 
   
   setTimeout(() => {
     result.innerHTML = `
       <ul>
-        <li><strong>Shantinagar Bazaar</strong> – Fri 7am–12pm</li>
-        <li><strong>Farmgate Market</strong> – Sun 8am–1pm</li>
+        <li><strong>Shantinagar Bazaar</strong>  Fri 7am-12pm</li>
+        <li><strong>Farmgate Market</strong> Sun 8am-1pm</li>
       </ul>`;
   }, 800);
 }
