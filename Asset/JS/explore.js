@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cuisine: "Dhaka",
       meal: "Lunch",
       diet: "Non-Veg",
-      image: "../Ass"
+      image: "../Asset/Image/biriyani.jpg"
     },
     {
       id: 2,

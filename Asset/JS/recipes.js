@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 4, title: "Begun Bharta", category: "vegetarian", image: "../Asset/Image/begun.jpg" },
     { id: 5, title: "Panta Ilish", category: "fish", image: "../Asset/Image/panta.jpg" },
     { id: 6, title: "Chicken Curry", category: "non-veg", image: "../Asset/Image/chicken.jpg" }
-    // Add more as needed
   ];
 
   const recipesPerPage = 4;
@@ -34,13 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const end = start + recipesPerPage;
     const paginated = filtered.slice(start, end);
 
-    recipeList.innerHTML = paginated.map(r => `
-      <div class="recipe-card">
-        <img src="${r.image}" alt="${r.title}">
-        <h3>${r.title}</h3>
-        <a href="recipe_details.html?id=${r.id}">View Details</a>
-      </div>
-    `).join("");
+    recipeList.innerHTML = paginated.length > 0
+      ? paginated.map(r => `
+        <div class="recipe-card">
+          <img src="${r.image}" alt="${r.title}">
+          <h3>${r.title}</h3>
+          <a href="recipe_details.html?id=${r.id}">View Details</a>
+        </div>
+      `).join("")
+      : `<p>No recipes found.</p>`;
 
     renderPagination(filtered.length, page);
   }
@@ -49,14 +50,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalPages = Math.ceil(totalItems / recipesPerPage);
     pagination.innerHTML = "";
 
+    // Previous Button
+    if (currentPage > 1) {
+      const prev = document.createElement("button");
+      prev.textContent = "⟨ Prev";
+      prev.addEventListener("click", () => renderRecipes(currentPage - 1));
+      pagination.appendChild(prev);
+    }
+
+    // Page Numbers
     for (let i = 1; i <= totalPages; i++) {
       const btn = document.createElement("button");
       btn.textContent = i;
       btn.className = i === currentPage ? "active" : "";
-      btn.addEventListener("click", () => {
-        renderRecipes(i);
-      });
+      btn.addEventListener("click", () => renderRecipes(i));
       pagination.appendChild(btn);
+    }
+
+    // Next Button
+    if (currentPage < totalPages) {
+      const next = document.createElement("button");
+      next.textContent = "Next ⟩";
+      next.addEventListener("click", () => renderRecipes(currentPage + 1));
+      pagination.appendChild(next);
     }
   }
 

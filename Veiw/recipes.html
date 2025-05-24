@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bangladeshi Recipes</title>
+  <title>All Recipes</title>
   <link rel="stylesheet" href="../Asset/CSS/style.css">
 </head>
 <body>
+
+  <!-- Navbar (optional) -->
   <nav class="navbar">
     <a href="recipes.html" class="active">Recipes</a>
     <a href="favorites.html">Favorites</a>
     <a href="explore.html">Explore</a>
-    <a href="seasonal.html">Seasonal Item</a>
-    <a href="convert.html">Convert</a>
+    <a href="recipe-add.html">Add Recipe</a>
   </nav>
 
   <h1>All Bangladeshi Recipes</h1>
+
+  <!--  Search and Filter Controls -->
   <div class="filters">
-    <input type="text" id="searchInput" placeholder="Search Bangladeshi recipes...">
+    <input type="text" id="searchInput" placeholder="Search recipes...">
     <select id="categoryFilter">
       <option value="all">All</option>
       <option value="non-veg">Non-Veg</option>
@@ -25,16 +28,14 @@
     </select>
   </div>
 
+  <!--  Recipe List -->
   <div id="recipeList" class="recipe-grid"></div>
 
+  <!--  Pagination Buttons -->
+  <div id="pagination" class="pagination"></div>
 
-<div id="pagination" class="pagination-controls"></div>
-
-<script src="../Asset/JS/recipes.js"></script>
-
-
-  <div id="recipeList" class="recipe-grid"></div>
-
+  <!--  JS Script -->
   <script src="../Asset/JS/recipes.js"></script>
+
 </body>
 </html>
