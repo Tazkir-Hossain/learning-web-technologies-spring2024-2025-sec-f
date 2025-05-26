@@ -9,13 +9,13 @@ function loginUser($email, $password) {
     echo `Successfull`;
   }
   
-  $query = "SELECT * FROM signup WHERE email = '$email' AND password = '$password'";
-  $result = $con->query($query);
+  // $query = "SELECT * FROM signup WHERE email = '$email' AND password = '$password'";
+  // $result = $con->query($query);
 
-  // $stmt = $con->prepare("SELECT * FROM signup WHERE email = ? AND password = ?");
-  // $stmt->bind_param("ss", $email, $password); // call bind_param and $email,$password are actual value
-  // $stmt->execute();
-  // $result = $stmt->get_result();
+  $stmt = $con->prepare("SELECT * FROM signup WHERE email = ? AND password = ?");
+  $stmt->bind_param("ss", $email, $password); // call bind_param and $email,$password are actual value
+  $stmt->execute();
+  $result = $stmt->get_result();
 
   if ($result->num_rows === 1) {
     return $result->fetch_assoc(); // Return user info
