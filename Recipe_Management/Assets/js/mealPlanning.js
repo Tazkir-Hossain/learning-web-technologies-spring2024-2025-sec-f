@@ -1,18 +1,18 @@
 // Meal Plan Sync Function
 document.getElementById("sync-btn").addEventListener("click", function () {
   let mealPlan = {
-    saturday: document.getElementById("saturday-meal").value,
-    sunday: document.getElementById("sunday-meal").value,
-    monday: document.getElementById("monday-meal").value,
-    tuesday: document.getElementById("tuesday-meal").value,
-    wednesday: document.getElementById("wednesday-meal").value,
-    thursday: document.getElementById("thursday-meal").value,
-    friday: document.getElementById("friday-meal").value,
+    saturday: document.getElementById("saturday-meal").value.toLowerCase(),
+    sunday: document.getElementById("sunday-meal").value.toLowerCase(),
+    monday: document.getElementById("monday-meal").value.toLowerCase(),
+    tuesday: document.getElementById("tuesday-meal").value.toLowerCase(),
+    wednesday: document.getElementById("wednesday-meal").value.toLowerCase(),
+    thursday: document.getElementById("thursday-meal").value.toLowerCase(),
+    friday: document.getElementById("friday-meal").value.toLowerCase(),
   };
 
-  // Example: Logging the selected meal plan to console
-  console.log("Meal Plan for the Week:", mealPlan);
+  // Save the meal plan to localStorage so the next page can access it
+  localStorage.setItem("mealPlan", JSON.stringify(mealPlan));
 
-  // Here, you could call a PHP function later to save this data
-  alert("Meal plan synced to shopping list!");
+  // Redirect to shopping list page
+  window.location.href = "../../view/shoppingList.html";
 });
