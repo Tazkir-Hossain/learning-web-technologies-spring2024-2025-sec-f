@@ -1,0 +1,4 @@
+RewriteEngine On
+
+ErrorDocument 404 /Recipe_Management/view/404.php
+ErrorDocument 500 /Recipe_Management/view/500.php

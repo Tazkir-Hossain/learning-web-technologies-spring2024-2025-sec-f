@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
    if (strlen($password) < 8) {
     die("Password must be at least 8 characters.");
   }
+  
     if (insertUser($name, $email, $password, $confirm_password)) {
         //echo "Successfully inserted";
         header("Location: ../view/login.php");

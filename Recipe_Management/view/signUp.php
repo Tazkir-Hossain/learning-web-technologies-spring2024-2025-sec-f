@@ -11,12 +11,12 @@
     <h2>Create Your Account</h2>
     <form method="POST" action="../controller/signUpController.php">
       <input type="text" name="name" id="name" placeholder="Full Name">
-      <input type="email" name="email" id="email" placeholder="Email Address">
+      <input type="email" name="email" id="email" placeholder="Email Address" onblur="checkEmail()">
       <input type="password" name="password" id="pass" placeholder="Password">
       <input type="password" name="confirm_password" id="conpass" placeholder="Confirm Password">
       <button type="submit">Sign Up</button>
     </form>
-
+    <p id="msg" style="color:red;"></p>
     <p>Already have an account? <a href="login.php">Login here</a></p>
     <script src="../assets/js/signUp.js"></script>
   </div>
