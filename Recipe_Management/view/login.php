@@ -30,7 +30,7 @@ if (isset($_SESSION['user'])) {
       <button type="submit">Login</button>
     </form>
 
-    <p>Don't have an account? <a href="./signup.php">Sign up here</a></p>
+    <p>Don't have an account? <a href="./signup.html">Sign up here</a></p>
   </div>
 </body>
 </html>

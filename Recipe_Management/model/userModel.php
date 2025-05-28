@@ -12,10 +12,6 @@ function connectDB() {
     return $con;
 }
 
-if (emailExists($email)) {
-    die("Email already registered.");
-}
-
 
 function insertUser($name, $email, $password, $confirm_password) {
     $con = connectDB();
@@ -26,26 +22,44 @@ function insertUser($name, $email, $password, $confirm_password) {
     return $result;
 }
 
+// function connectDB() {
+//     $server = "localhost";
+//     $username = "root";
+//     $password = "";
+//     $database = "recipe_management";
 
-// this function to check email availability
-// function emailExists($email) {
-//     $con = connectDB();
-//     $sql = "SELECT * FROM signup WHERE email = '$email'";
-//     $result = mysqli_query($con, $sql);
-//     $exists = mysqli_num_rows($result) > 0;
-//     mysqli_close($con);
-//     return $exists;
+//     $con = new mysqli($server, $username, $password, $database);
+    
+//     if ($con->connect_error) {
+//         die("Connection failed: " . $con->connect_error);
+//     }
+    
+//     return $con;
 // }
-
 
 function emailExists($email) {
     $con = connectDB();
-    $email = mysqli_real_escape_string($con, $email);
-    $sql = "SELECT * FROM signup WHERE email = '$email'";
-    $result = mysqli_query($con, $sql);
-    $exists = mysqli_num_rows($result) > 0;
-    mysqli_close($con);
+    $stmt = $con->prepare("SELECT email FROM signup WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    $exists = $stmt->num_rows > 0;
+    $stmt->close();
+    $con->close();
     return $exists;
 }
+
+// function insertUser($name, $email, $password, $confirm_password) {
+//     $con = connectDB();
+    
+//     $stmt = $con->prepare("INSERT INTO signup (name, email, password, date) VALUES (?, ?, ?, current_timestamp())");
+//     $stmt->bind_param("sss", $name, $email, $password);
+    
+//     $result = $stmt->execute();
+//     $stmt->close();
+//     $con->close();
+    
+//     return $result;
+// }
 
 ?>

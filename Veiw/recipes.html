@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>All Recipes</title>
-  <link rel="stylesheet" href="../Asset/CSS/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>All Recipes</title>
+    <link rel="stylesheet" href="../Asset/CSS/style.css" />
+  </head>
+  <body>
+    <!-- Navbar (optional) -->
+    <nav class="navbar">
+      <a href="recipes.html" class="active">Recipes</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="explore.html">Explore</a>
+      <a href="recipe-add.html">Add Recipe</a>
+    </nav>
 
-  <!-- Navbar (optional) -->
-  <nav class="navbar">
-    <a href="recipes.html" class="active">Recipes</a>
-    <a href="favorites.html">Favorites</a>
-    <a href="explore.html">Explore</a>
-    <a href="recipe_add.html">Add Recipe</a>
-    <a href="timer.html">Set Timer</a>
-  </nav>
+    <h1>All Bangladeshi Recipes</h1>
 
-  <h1>All Bangladeshi Recipes</h1>
+    <!--  Search and Filter Controls -->
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search recipes..." />
+      <select id="categoryFilter">
+        <option value="all">All</option>
+        <option value="non-veg">Non-Veg</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="fish">Fish</option>
+      </select>
+    </div>
 
-  <!--  Search and Filter Controls -->
-  <div class="filters">
-    <input type="text" id="searchInput" placeholder="Search recipes...">
-    <select id="categoryFilter">
-      <option value="all">All</option>
-      <option value="non-veg">Non-Veg</option>
-      <option value="vegetarian">Vegetarian</option>
-      <option value="fish">Fish</option>
-    </select>
-  </div>
+    <!--  Recipe List -->
+    <div id="recipeList" class="recipe-grid"></div>
 
-  <!--  Recipe List -->
-  <div id="recipeList" class="recipe-grid"></div>
+    <!--  Pagination Buttons -->
+    <div id="pagination" class="pagination"></div>
 
-  <!--  Pagination Buttons -->
-  <div id="pagination" class="pagination"></div>
-
-  <!--  JS Script -->
-  <script src="../Asset/JS/recipes.js"></script>
-
-</body>
+    <!--  JS Script -->
+    <script src="../Asset/JS/recipes.js"></script>
+  </body>
 </html>

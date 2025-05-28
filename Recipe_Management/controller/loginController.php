@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../model/loginModel.php'; // show me a warning if the file is missing
+include '../model/loginModel.php'; // if the file is here
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = $_POST['email'];
