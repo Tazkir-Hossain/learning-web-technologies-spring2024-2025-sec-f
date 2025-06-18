@@ -1,29 +1,64 @@
-const mealToItems = {
-  breakfast: ["Apple", "Banana", "Milk", "Yogurt"],
-  lunch: ["Spinach", "Rice", "Tomato"],
-  dinner: ["Carrot", "Cheese", "Chicken", "Tomato"],
+// Define grocery items based on meal type (Bangladeshi style)
+const groceryItems = {
+  breakfast: ["Tea", "Bread", "Jam"],
+  lunch: ["Rice", "Chicken", "Beef", "Fish"],
+  dinner: ["Rice", "Fish", "Vegetables", "Lentils"],
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  const mealPlan = JSON.parse(localStorage.getItem("mealPlan"));
+function createListSection(title, items) {
+  const container = document.createElement("div");
+  container.className = "list-container";
 
-  if (!mealPlan) return;
+  const heading = document.createElement("h2");
+  heading.textContent = title;
+  container.appendChild(heading);
 
-  // Flatten all selected meals into one list of grocery items
-  let selectedMeals = Object.values(mealPlan); // e.g., ["breakfast", "lunch", ...]
-  let itemsToCheck = new Set();
+  const ul = document.createElement("ul");
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    li.appendChild(checkbox);
+    li.appendChild(document.createTextNode(" " + item));
+    ul.appendChild(li);
+  });
+  container.appendChild(ul);
 
-  selectedMeals.forEach((meal) => {
-    if (mealToItems[meal]) {
-      mealToItems[meal].forEach((item) => itemsToCheck.add(item));
+  return container;
+}
+
+function loadShoppingList() {
+  const selectedMeals = JSON.parse(localStorage.getItem("selectedMeals"));
+  if (!selectedMeals) {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      "<p>No meal plan selected. Please go back and select meals.</p>"
+    );
+    return;
+  }
+
+  // Collect all selected meal types across the week
+  const allSelectedMeals = new Set();
+  for (const day in selectedMeals) {
+    selectedMeals[day].forEach((meal) => allSelectedMeals.add(meal));
+  }
+
+  // Clear existing list container if any
+  const existingContainers = document.querySelectorAll(".list-container");
+  existingContainers.forEach((c) => c.remove());
+
+  // For each meal type selected, add grocery list section
+  allSelectedMeals.forEach((mealType) => {
+    const items = groceryItems[mealType];
+    if (items) {
+      const section = createListSection(
+        mealType.charAt(0).toUpperCase() + mealType.slice(1),
+        items
+      );
+      document.body.appendChild(section);
     }
   });
+}
 
-  // Now check checkboxes if label text matches
-  document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
-    let label = checkbox.parentElement.textContent.trim();
-    if (itemsToCheck.has(label)) {
-      checkbox.checked = true;
-    }
-  });
-});
+// Run on page load
+window.addEventListener("DOMContentLoaded", loadShoppingList);

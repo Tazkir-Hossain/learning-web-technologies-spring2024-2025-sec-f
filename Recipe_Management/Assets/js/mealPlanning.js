@@ -1,18 +1,29 @@
-// Meal Plan Sync Function
-document.getElementById("sync-btn").addEventListener("click", function () {
-  let mealPlan = {
-    saturday: document.getElementById("saturday-meal").value.toLowerCase(),
-    sunday: document.getElementById("sunday-meal").value.toLowerCase(),
-    monday: document.getElementById("monday-meal").value.toLowerCase(),
-    tuesday: document.getElementById("tuesday-meal").value.toLowerCase(),
-    wednesday: document.getElementById("wednesday-meal").value.toLowerCase(),
-    thursday: document.getElementById("thursday-meal").value.toLowerCase(),
-    friday: document.getElementById("friday-meal").value.toLowerCase(),
-  };
+document.getElementById("sync-btn").addEventListener("click", function (event) {
+  event.preventDefault();
 
-  // Save the meal plan to localStorage so the next page can access it
-  localStorage.setItem("mealPlan", JSON.stringify(mealPlan));
+  const days = [
+    "saturday",
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+  ];
+  const selectedMeals = {};
 
-  // Redirect to shopping list page
-  window.location.href = "../../view/shoppingList.html";
+  days.forEach((day) => {
+    // Select all checked checkboxes for this day
+    const checkboxes = document.querySelectorAll(
+      `input[name="${day}-meal"]:checked`
+    );
+    // Map checked checkboxes to their values (breakfast, lunch, dinner)
+    selectedMeals[day] = Array.from(checkboxes).map((cb) => cb.value);
+  });
+
+  // Save the entire selected meals object to localStorage
+  localStorage.setItem("selectedMeals", JSON.stringify(selectedMeals));
+
+  // Redirect to shoppingList.html
+  window.location.href = "shoppingList.html";
 });
