@@ -62,3 +62,22 @@ function loadShoppingList() {
 
 // Run on page load
 window.addEventListener("DOMContentLoaded", loadShoppingList);
+
+document
+  .getElementById("view-nutrition-btn")
+  .addEventListener("click", function () {
+    const selectedItems = [];
+
+    document.querySelectorAll(".list-container ul li").forEach((li) => {
+      const checkbox = li.querySelector("input[type='checkbox']");
+      if (checkbox && checkbox.checked) {
+        selectedItems.push(li.textContent.trim());
+      }
+    });
+
+    // Save selected food items to localStorage
+    localStorage.setItem("selectedFoods", JSON.stringify(selectedItems));
+
+    // Redirect to nutrition info page
+    window.location.href = "nutritionInfo.html";
+  });

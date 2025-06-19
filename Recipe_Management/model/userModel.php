@@ -22,20 +22,6 @@ function insertUser($name, $email, $password, $confirm_password) {
     return $result;
 }
 
-// function connectDB() {
-//     $server = "localhost";
-//     $username = "root";
-//     $password = "";
-//     $database = "recipe_management";
-
-//     $con = new mysqli($server, $username, $password, $database);
-    
-//     if ($con->connect_error) {
-//         die("Connection failed: " . $con->connect_error);
-//     }
-    
-//     return $con;
-// }
 
 function emailExists($email) {
     $con = connectDB();
@@ -49,17 +35,5 @@ function emailExists($email) {
     return $exists;
 }
 
-// function insertUser($name, $email, $password, $confirm_password) {
-//     $con = connectDB();
-    
-//     $stmt = $con->prepare("INSERT INTO signup (name, email, password, date) VALUES (?, ?, ?, current_timestamp())");
-//     $stmt->bind_param("sss", $name, $email, $password);
-    
-//     $result = $stmt->execute();
-//     $stmt->close();
-//     $con->close();
-    
-//     return $result;
-// }
 
 ?>
